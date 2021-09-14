@@ -84,6 +84,7 @@ int main(void) {
 		string line;
 		while(getline(readFile, line)) {
 			int start, end;
+            tmp.clear();
 			parseStrToInt(start, end, line);
 			findPath(start, end);
 			if(writeFile.is_open()) {
