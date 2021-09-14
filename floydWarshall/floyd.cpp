@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <fstream>
@@ -7,7 +8,9 @@ using namespace std;
 const int MAX = 1000;
 const int INF = 987654321;
 int path[MAX][MAX];
+int graph[MAX][MAX];
 vector<int> tmp;
+vector<int> stations;
 
 void findPath(int from, int to) {
 	int prev = path[from][to];
@@ -19,11 +22,35 @@ void findPath(int from, int to) {
 	findPath(prev, to);
 }
 
+void floyd(int s_len) {
+	for(int mid = 0; mid < s_len; mid++) {
+		for(int st = 0; st < s_len; st++) {
+			for(int e = 0; e < s_len; e++) {
+				int st_s = stations[st];
+				int mid_s = stations[mid];
+				int e_s = stations[e];
+				if(graph[st_s][e_s] > graph[st_s][mid_s] + graph[mid_s][e_s]) {
+					graph[st_s][e_s] = graph[st_s][mid_s] + graph[mid_s][e_s];
+					path[st_s][e_s] = mid_s;
+				}
+			}
+		}
+	}
+	return;
+}
+
+void parseStrToInt(int& start, int& end, string path) {
+	string s = "";
+	string e = "";
+	for(int i = 0; i < 3; i++) s += path[i];
+	for(int i = 4; i < 7; i++) e += path[i];
+	start = stoi(s);
+	end = stoi(e);
+}
+
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	int graph[MAX][MAX];
-	vector<int> stations;
 	for(int i = 0, s; i < 139; i++) {
 		cin >> s;
 		stations.push_back(s);
@@ -45,27 +72,34 @@ int main(void) {
 		graph[n1][n2] = v;
 		graph[n2][n1] = v;
 	}
-	for(int mid = 0; mid < s_len; mid++) {
-		for(int st = 0; st < s_len; st++) {
-			for(int e = 0; e < s_len; e++) {
-				int st_s = stations[st];
-				int mid_s = stations[mid];
-				int e_s = stations[e];
-				if(graph[st_s][e_s] > graph[st_s][mid_s] + graph[mid_s][e_s]) {
-					graph[st_s][e_s] = graph[st_s][mid_s] + graph[mid_s][e_s];
-					path[st_s][e_s] = mid_s;
+	
+	floyd(s_len);
+
+	string filePath = "permutation.txt";
+	ifstream readFile(filePath.data());
+	string writeFilePath = "minTimeAns.txt";
+	ofstream writeFile(writeFilePath.data());
+	if(readFile.is_open()) {
+		cout << 1;
+		string line;
+		while(getline(readFile, line)) {
+			int start, end;
+			parseStrToInt(start, end, line);
+			findPath(start, end);
+			if(writeFile.is_open()) {
+				writeFile << start << " " << end << " " << graph[start][end] << " ";
+				for(auto p : tmp) {
+					writeFile << p << " ";
 				}
+				writeFile << "\n";
 			}
+//			cout << graph[start][end];
+//			for(auto p : tmp) {
+//				cout << p << " ";
+//			}
+//			cout << endl;
 		}
-	}	
-	int from, to;
-	cin >> from >> to;
-	cout << graph[from][to] << "\n";
-	tmp.clear();
-	findPath(from, to);
-	tmp.push_back(to);
-	for(auto p : tmp) {
-		cout << p << " ";
+		writeFile.close();
+		readFile.close();
 	}
-	cout << "\n";
 }
