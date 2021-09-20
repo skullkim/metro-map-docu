@@ -77,10 +77,9 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string writeFilePath = "minTimeAns.txt";
+	string writeFilePath = "minCostAns.txt";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
-		cout << 1;
 		string line;
 		while(getline(readFile, line)) {
 			int start, end;
