@@ -39,7 +39,9 @@ int main(void) {
 		for(auto p : allPath) {
 			string insert = "INSERT INTO station_from_to(`from`, `to`) VALUES(";
 			for(auto i : p) {
+				insert += "\'";
 				insert += to_string(i);
+				insert += "\'";
 				insert += ", ";
 				//writeFile << i << " ";
 			}

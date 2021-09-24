@@ -77,7 +77,7 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string writeFilePath = "minCostAns.txt";
+	string writeFilePath = "minCostAns.sql";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
@@ -86,12 +86,24 @@ int main(void) {
             tmp.clear();
 			parseStrToInt(start, end, line);
 			findPath(start, end);
+			string sql = "INSERT INTO min_cost_value(minValue, fromToId) VALUES(\'";
+			sql += to_string(graph[start][end]);
+			sql += "\', (SELECT id FROM station_from_to WHERE `from`=\'";
+			sql += to_string(start);
+			sql += "\' AND `to`=\'";
+			sql += to_string(end);
+			sql += "\'));";
 			if(writeFile.is_open()) {
-				writeFile << start << " " << end << " " << graph[start][end] << " ";
+				writeFile << sql << "\n";
+				//writeFile << start << " " << end << " " << graph[start][end] << " ";
 				for(auto p : tmp) {
-					writeFile << p << " ";
+					string sql2 = "INSERT INTO min_cost(station, minCostId) VALUES(\'";
+					sql2 += to_string(p);
+					sql2 += "\', (SELECT id FROM min_cost_value ORDER BY id DESC LIMIT 1));";
+					writeFile << sql2 << "\n";
+					//writeFile << p << " ";
 				}
-				writeFile << "\n";
+				//writeFile << "\n";
 			}
 //			cout << graph[start][end];
 //			for(auto p : tmp) {
