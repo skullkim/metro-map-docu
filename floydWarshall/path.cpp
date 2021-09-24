@@ -28,12 +28,12 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	int s;
-	for(int i = 0 ; i < 139; i++) {
+	for(int i = 0 ; i < 110; i++) {
 		cin >> s;
 		stations.push_back(s);
 	}
 	f(0);
-	string filePath = "permutation.sql";
+	string filePath = "permutation.txt";
 	ofstream writeFile(filePath.data());
 	if(writeFile.is_open()) {
 		for(auto p : allPath) {
@@ -43,8 +43,9 @@ int main(void) {
 				insert += to_string(i);
 				insert += "\'";
 				insert += ", ";
-				//writeFile << i << " ";
+//				writeFile << i << " ";
 			}
+//			writeFile << "\n";
 			insert.pop_back();
 			insert.pop_back();
 			insert += ");";
