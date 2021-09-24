@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <string>
 using namespace std;
 
 vector<int> stations;
@@ -10,7 +11,6 @@ bool vi[140];
 
 void f (int cnt) {
 	if(cnt == 2) {
-		
 		allPath.push_back(ans);
 		return;
 	}
@@ -33,14 +33,20 @@ int main(void) {
 		stations.push_back(s);
 	}
 	f(0);
-	string filePath = "permutation.txt";
+	string filePath = "permutation.sql";
 	ofstream writeFile(filePath.data());
 	if(writeFile.is_open()) {
 		for(auto p : allPath) {
+			string insert = "INSERT INTO station_from_to(`from`, `to`) VALUES(";
 			for(auto i : p) {
-				writeFile << i << " ";
+				insert += to_string(i);
+				insert += ", ";
+				//writeFile << i << " ";
 			}
-			writeFile << "\n";
+			insert.pop_back();
+			insert.pop_back();
+			insert += ");";
+			writeFile << insert << "\n";
 		}
 		writeFile.close();
 	}
