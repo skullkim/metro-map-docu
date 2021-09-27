@@ -77,7 +77,7 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string writeFilePath = "minTimeAns.sql";
+	string writeFilePath = "minCostAns.sql";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
@@ -93,13 +93,16 @@ int main(void) {
 			sql += "\' AND `to`=\'";
 			sql += to_string(end);
 			sql += "\'));";
+			string sqlVal = "SET @fromToId=(SELECT id FROM min_cost_value ORDER BY id DESC LIMIT 1)";
 			if(writeFile.is_open()) {
 				writeFile << sql << "\n";
+				writeFile << sqlVal << "\n";
 //				writeFile << start << " " << end << " " << graph[start][end] << " ";
 				for(auto p : tmp) {
 					string sql2 = "INSERT INTO min_cost(station, minCostId) VALUES(\'";
 					sql2 += to_string(p);
-					sql2 += "\', (SELECT id FROM min_cost_value ORDER BY id DESC LIMIT 1));";
+					sql2 += "\', @fromToId);";
+					//sql2 += "\', (SELECT id FROM min_cost_value ORDER BY id DESC LIMIT 1));";
 					writeFile << sql2 << "\n";
 //					writeFile << p << " ";
 				}
