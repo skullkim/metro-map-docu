@@ -7,9 +7,9 @@ Metro map
 A website where you can find out the shortest distance and minimum subway transfer distance
 - - -
 ## Used skills
-Backend: Express  
-Frontend: React  
-Database: mysql, sequelize(ORM)
+Backend: Express, TS  
+Frontend: React, JS  
+Database: mysql, typeorm(ORM)
 - - -
 ## repo link
 [metro-map-frontend](https://github.com/skullkim/metro-map-front)  
