@@ -9,6 +9,8 @@ const int MAX = 1000;
 const int INF = 987654321;
 int path[MAX][MAX];
 int graph[MAX][MAX];
+int otherVal[MAX][MAX];
+int otherVal2[MAX][MAX];
 vector<int> tmp;
 vector<int> stations;
 
@@ -31,6 +33,8 @@ void floyd(int s_len) {
 				int e_s = stations[e];
 				if(graph[st_s][e_s] > graph[st_s][mid_s] + graph[mid_s][e_s]) {
 					graph[st_s][e_s] = graph[st_s][mid_s] + graph[mid_s][e_s];
+					otherVal[st_s][e_s] = otherVal[st_s][mid_s] + otherVal[mid_s][e_s];
+					otherVal2[st_s][e_s] = otherVal2[st_s][mid_s] + otherVal2[mid_s][e_s];
 					path[st_s][e_s] = mid_s;
 				}
 			}
@@ -56,28 +60,36 @@ int main(void) {
 		stations.push_back(s);
 	}
 	int s_len = stations.size();
-	int n1, n2, v;
 	for(int i = 0; i < s_len; i++) {
 		for(int k = 0; k < s_len; k++) {
 			int s1 = stations[i];
 			int s2 = stations[k];
 			graph[s1][s2] = INF;
 			graph[s2][s1] = INF;
+			otherVal[s1][s2] = INF;
+			otherVal[s2][s1] = INF;
+			otherVal2[s1][s2] = INF;
+			otherVal2[s2][s1] = INF;
 			path[s1][s2] = s1;
 			path[s2][s1] = s2;
 		}
 	}
+	int n1, n2, v, ov1, ov2;
 	for(int i = 0; i < 139; i++) {
-		cin >> n1 >> n2 >> v;
+		cin >> n1 >> n2 >> v >> ov1 >> ov2;
 		graph[n1][n2] = v;
 		graph[n2][n1] = v;
+		otherVal[n1][n2] = ov1;
+		otherVal[n2][n1] = ov1;
+		otherVal2[n1][n2] = ov2;
+		otherVal2[n2][n1] = ov2;
 	}
 	
 	floyd(s_len);
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string writeFilePath = "minTimeAns.sql";
+	string writeFilePath = "minTimeAns.txt";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
@@ -86,25 +98,10 @@ int main(void) {
             tmp.clear();
 			parseStrToInt(start, end, line);
 			findPath(start, end);
-			string sql = "INSERT INTO min_time_value(minValue, fromToId) VALUES(\'";
-			sql += to_string(graph[start][end]);
-			sql += "\', (SELECT id FROM station_from_to WHERE `from`=\'";
-			sql += to_string(start);
-			sql += "\' AND `to`=\'";
-			sql += to_string(end);
-			sql += "\'));";
-			string sqlVal = "SET @fromToId=(SELECT id FROM min_time_value ORDER BY id DESC LIMIT 1);";
 			if(writeFile.is_open()) {
-				writeFile << sql << "\n";
-				writeFile << sqlVal << "\n";
-//				writeFile << start << " " << end << " " << graph[start][end] << " ";
+				writeFile << start << " " << end << " " << graph[start][end] << " " << otherVal[start][end] << " " << otherVal2[start][end] << " ";
 				for(auto p : tmp) {
-					string sql2 = "INSERT INTO min_time(station, minTimeId) VALUES(\'";
-					sql2 += to_string(p);
-					sql2 += "\', @fromToId);";
-					//sql2 += "\', (SELECT id FROM min_cost_value ORDER BY id DESC LIMIT 1));";
-					writeFile << sql2 << "\n";
-//					writeFile << p << " ";
+					writeFile << p << " ";
 				}
 				writeFile << "\n";
 			}
