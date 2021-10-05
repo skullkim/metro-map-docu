@@ -51,6 +51,52 @@ void parseStrToInt(int& start, int& end, string path) {
 	end = stoi(e);
 }
 
+string insertMinValue(string target, int start, int end) {
+	string sql = "INSERT INTO min_";
+	sql += target;
+	sql += "_value(minValue, fromToId) VALUES(\'";
+	sql += to_string(graph[start][end]);
+	sql += "\', (SELECT id FROM station_from_to WHERE `from`=\'";
+	sql += to_string(start);
+	sql += "\' AND `to`=\'";
+	sql += to_string(end);
+	sql += "\'));";
+	return sql;
+}
+
+string insertOtherValue(string targetLower, string targetUpper, int start, int end, string ov1, string ov2) {
+	string sql3 = "INSERT INTO min_";
+	sql3 += targetLower;
+	sql3 += "_other_values(";
+	sql3 += ov1;
+	sql3 += ", ";
+	sql3 += ov2;
+	sql3 += ", min";
+	sql3 += targetUpper;
+	sql3 += "ValueId) VALUES(\'";
+	sql3 += to_string(otherVal[start][end]);
+	sql3 += "\', \'";
+	sql3 += to_string(otherVal2[start][end]);
+	sql3 += "\', @fromToId);";
+	return sql3;
+}
+
+string insertSqlVal(string target) {
+	string sqlVal = "SET @fromToId=(SELECT id FROM min_";
+	sqlVal += target;
+	sqlVal += "_value ORDER BY id DESC LIMIT 1);";
+	return sqlVal;
+}
+
+string insertPath(string targetLower, string targetUpper, auto val) {
+	string sql2 = "INSERT INTO min_time(station, min";
+	sql2 += targetUpper;
+	sql2 += "Id) VALUES(\'";
+	sql2 += to_string(val);
+	sql2 += "\', @fromToId);";
+	return sql2;
+}
+
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -89,7 +135,13 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string writeFilePath = "minTimeAns.sql";
+	string targetLower = "path";
+	string targetUpper = "Path";
+	string otherV1 = "time";
+	string otherV2 = "cost";
+	string writeFilePath = "min";
+	writeFilePath += targetUpper;
+	writeFilePath += "Ans.sql";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
@@ -98,30 +150,20 @@ int main(void) {
             tmp.clear();
 			parseStrToInt(start, end, line);
 			findPath(start, end);
-			string sql = "INSERT INTO min_time_value(minValue, fromToId) VALUES(\'";
-			sql += to_string(graph[start][end]);
-			sql += "\', (SELECT id FROM station_from_to WHERE `from`=\'";
-			sql += to_string(start);
-			sql += "\' AND `to`=\'";
-			sql += to_string(end);
-			sql += "\'));";
-			string sqlVal = "SET @fromToId=(SELECT id FROM min_time_value ORDER BY id DESC LIMIT 1);";
+			string sql = insertMinValue(targetLower, start, end);
+			string sqlVal = insertSqlVal(targetLower);
 			if(writeFile.is_open()) {
 				writeFile << sql << "\n";
 				writeFile << sqlVal << "\n";
-				string sql3 = "INSERT INTO min_time_other_values(distance, cost,  minTimeValueId) VALUES(\'";
-				sql3 += to_string(otherVal[start][end]);
-				sql3 += "\', \'";
-				sql3 += to_string(otherVal2[start][end]);
-				sql3 += "\', @fromToId);";
+				string sql3 = insertOtherValue(targetLower, targetUpper, start, end, otherV1, otherV2);
 				writeFile << sql3 << "\n";
 				for(auto p : tmp) {
-					string sql2 = "INSERT INTO min_time(station, minTimeId) VALUES(\'";
-					sql2 += to_string(p);
-					sql2 += "\', @fromToId);";
+					string sql2 = insertPath(targetLower, targetUpper, p);
 					writeFile << sql2 << "\n";
 
 				}
+				string sql2 = insertPath(targetLower, targetUpper, end);
+				writeFile << sql2 << "\n";
 				writeFile << "\n";
 			}
 		}
