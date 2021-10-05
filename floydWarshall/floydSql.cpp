@@ -51,7 +51,7 @@ void parseStrToInt(int& start, int& end, string path) {
 	end = stoi(e);
 }
 
-string insertMinValue(string target, int start, int end) {
+string insertMinValue(const string target, int start, int end) {
 	string sql = "INSERT INTO min_";
 	sql += target;
 	sql += "_value(minValue, fromToId) VALUES(\'";
@@ -64,7 +64,7 @@ string insertMinValue(string target, int start, int end) {
 	return sql;
 }
 
-string insertOtherValue(string targetLower, string targetUpper, int start, int end, string ov1, string ov2) {
+string insertOtherValue(const string targetLower, const string targetUpper, int start, int end, string ov1, string ov2) {
 	string sql3 = "INSERT INTO min_";
 	sql3 += targetLower;
 	sql3 += "_other_values(";
@@ -81,15 +81,17 @@ string insertOtherValue(string targetLower, string targetUpper, int start, int e
 	return sql3;
 }
 
-string insertSqlVal(string target) {
+string insertSqlVal(const string target) {
 	string sqlVal = "SET @fromToId=(SELECT id FROM min_";
 	sqlVal += target;
 	sqlVal += "_value ORDER BY id DESC LIMIT 1);";
 	return sqlVal;
 }
 
-string insertPath(string targetLower, string targetUpper, auto val) {
-	string sql2 = "INSERT INTO min_time(station, min";
+string insertPath(const string targetLower, const string targetUpper, auto val) {
+	string sql2 = "INSERT INTO min_";
+	sql2 += targetLower;
+	sql2 += "(station, min";
 	sql2 += targetUpper;
 	sql2 += "Id) VALUES(\'";
 	sql2 += to_string(val);
@@ -135,13 +137,11 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	string targetLower = "path";
-	string targetUpper = "Path";
-	string otherV1 = "time";
-	string otherV2 = "cost";
-	string writeFilePath = "min";
-	writeFilePath += targetUpper;
-	writeFilePath += "Ans.sql";
+	const string targetLower = "time";
+	const string targetUpper = "Time";
+	const string otherV1 = "distance";
+	const string otherV2 = "cost";
+	string writeFilePath = "minTimeAns.sql";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
