@@ -1,0 +1,3407 @@
+{
+	"info": {
+		"_postman_id": "b2136f35-4126-41cd-8f95-bf6b71c3ba01",
+		"name": "teamproject1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "minCost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "minCost-wrong-station",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/cost?from=111&to=999",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "111"
+								},
+								{
+									"key": "to",
+									"value": "999"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "222"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"de-UtaRzr0QrrBkhLRPBiL35OyBOZM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Sep 2021 07:30:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/cost?from=111&to=999\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"from\": \"111\",\n            \"to\": \"999\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"존재하지 않는 도착점입니다\"\n    }\n}"
+				},
+				{
+					"name": "minCost-lack information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/cost?from=&to=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": ""
+								},
+								{
+									"key": "to",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-V8yLcf3ZXfDqsKoHz6ODcUtPSYc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Sep 2021 07:31:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/cost?from=&to=\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"from\": \"\",\n            \"to\": \"\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"출발점이 없습니다\"\n    }\n}"
+				},
+				{
+					"name": "minCost-from and to is same",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/cost?from=102&to=102",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "102"
+								},
+								{
+									"key": "to",
+									"value": "102"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e9-eQyDfsKntedkD2thBVbR0HSo7+Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Sep 2021 09:02:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/cost?from=102&to=102\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"from\": \"102\",\n            \"to\": \"102\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"도착점과 출발점을 같을 수 없습니다\"\n    }\n}"
+				},
+				{
+					"name": "minCost-number and letters are mixed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/cost?from=102&to=102a",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "102"
+								},
+								{
+									"key": "to",
+									"value": "102a"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e0-f6+AaDiYZ+mwIfIElcFIuGhCjCk\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Sep 2021 09:03:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/cost?from=102&to=102a\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"from\": \"102\",\n            \"to\": \"102a\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"존재하지 않는 도착점입니다\"\n    }\n}"
+				},
+				{
+					"name": "minCost-wrong parameter(parameter must be one of cost, time, distance)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/costr?from=901&to=102",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"costr"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "901"
+								},
+								{
+									"key": "to",
+									"value": "102"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "246"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f6-g/CbOOkn9b8xvCHXF9+arV2ZSX8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 06:38:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/costr?from=901&to=102\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"costr\"\n        },\n        \"query\": {\n            \"from\": \"901\",\n            \"to\": \"102\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"길찾기 대상이 잘못되었습니다\"\n    }\n}"
+				},
+				{
+					"name": "minCost-success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/cost?startStation=101&arriveStation=211",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "startStation",
+									"value": "101"
+								},
+								{
+									"key": "arriveStation",
+									"value": "211"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "547"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"223-yXaVOjvJF7KlaYJ/EmnyL9GnDo4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Oct 2021 09:00:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/path/cost?startStation=101&arriveStation=211\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"cost\"\n        },\n        \"query\": {\n            \"startStation\": \"101\",\n            \"arriveStation\": \"211\"\n        }\n    },\n    \"data\": {\n        \"min_value\": \"4140원\",\n        \"path\": [\n            {\n                \"id\": 231,\n                \"station\": \"101\"\n            },\n            {\n                \"id\": 232,\n                \"station\": \"123\"\n            },\n            {\n                \"id\": 233,\n                \"station\": \"122\"\n            },\n            {\n                \"id\": 234,\n                \"station\": \"121\"\n            },\n            {\n                \"id\": 235,\n                \"station\": \"602\"\n            },\n            {\n                \"id\": 236,\n                \"station\": \"601\"\n            },\n            {\n                \"id\": 237,\n                \"station\": \"622\"\n            },\n            {\n                \"id\": 238,\n                \"station\": \"621\"\n            },\n            {\n                \"id\": 239,\n                \"station\": \"211\"\n            }\n        ],\n        \"other_value\": {\n            \"id\": 33,\n            \"distance\": \"3.35km\",\n            \"time\": \"57분 40초\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "minTIme",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "minTIme-success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/time?startStation=101&arriveStation=413",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"time"
+							],
+							"query": [
+								{
+									"key": "startStation",
+									"value": "101"
+								},
+								{
+									"key": "arriveStation",
+									"value": "413"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "684"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2ac-eGwdt5BODG8MslefQhVidL5ju3c\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Oct 2021 09:01:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/path/time?startStation=101&arriveStation=413\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"time\"\n        },\n        \"query\": {\n            \"startStation\": \"101\",\n            \"arriveStation\": \"413\"\n        }\n    },\n    \"data\": {\n        \"min_value\": \"1시간 38분\",\n        \"path\": [\n            {\n                \"id\": 439,\n                \"station\": \"101\"\n            },\n            {\n                \"id\": 440,\n                \"station\": \"123\"\n            },\n            {\n                \"id\": 441,\n                \"station\": \"122\"\n            },\n            {\n                \"id\": 442,\n                \"station\": \"121\"\n            },\n            {\n                \"id\": 443,\n                \"station\": \"603\"\n            },\n            {\n                \"id\": 444,\n                \"station\": \"604\"\n            },\n            {\n                \"id\": 445,\n                \"station\": \"605\"\n            },\n            {\n                \"id\": 446,\n                \"station\": \"606\"\n            },\n            {\n                \"id\": 447,\n                \"station\": \"116\"\n            },\n            {\n                \"id\": 448,\n                \"station\": \"607\"\n            },\n            {\n                \"id\": 449,\n                \"station\": \"608\"\n            },\n            {\n                \"id\": 450,\n                \"station\": \"609\"\n            },\n            {\n                \"id\": 451,\n                \"station\": \"412\"\n            },\n            {\n                \"id\": 452,\n                \"station\": \"413\"\n            }\n        ],\n        \"other_value\": {\n            \"id\": 59,\n            \"distance\": \"5.15km\",\n            \"cost\": \"8530원\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "minDistance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "minDistance-success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/distance?startStation=101&arriveStation=102",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"distance"
+							],
+							"query": [
+								{
+									"key": "startStation",
+									"value": "101"
+								},
+								{
+									"key": "arriveStation",
+									"value": "102"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "353"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"161-4Xoxej1q9K8y9ojIp8+GAUOlRUI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Oct 2021 09:01:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/path/distance?startStation=101&arriveStation=102\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"distance\"\n        },\n        \"query\": {\n            \"startStation\": \"101\",\n            \"arriveStation\": \"102\"\n        }\n    },\n    \"data\": {\n        \"min_value\": \"500m\",\n        \"path\": [\n            {\n                \"id\": 1,\n                \"station\": \"101\"\n            },\n            {\n                \"id\": 2,\n                \"station\": \"102\"\n            }\n        ],\n        \"other_value\": {\n            \"id\": 1,\n            \"cost\": \"200원\",\n            \"time\": \"3분 20초\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "stopover-success",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "stopover-station doesn't exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/stopover/cost?from=103&stopover=103a&to=105",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"stopover",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "103"
+								},
+								{
+									"key": "stopover",
+									"value": "103a"
+								},
+								{
+									"key": "to",
+									"value": "105"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "283"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11b-U9Qh1ALY69xN+MMRAssf1IshzuU\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Sep 2021 09:28:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/stopover/cost?from=103&stopover=103a&to=105\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"cost\"\n        },\n        \"query\": {\n            \"from\": \"103\",\n            \"stopover\": \"103a\",\n            \"to\": \"105\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"존재하지 않는 경유지 입니다\"\n    }\n}"
+				},
+				{
+					"name": "stopover-from-and-stopove- are-same",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/stopover/cost?from=103&stopover=103&to=104",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"stopover",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "103"
+								},
+								{
+									"key": "stopover",
+									"value": "103"
+								},
+								{
+									"key": "to",
+									"value": "104"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "292"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"124-4QeCSwdtqTNFLwo48MzcNGdYhtk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Sep 2021 09:29:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/stopover/cost?from=103&stopover=103&to=104\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"cost\"\n        },\n        \"query\": {\n            \"from\": \"103\",\n            \"stopover\": \"103\",\n            \"to\": \"104\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"출발점 와 경유지가 같을 수 없습니다\"\n    }\n}"
+				},
+				{
+					"name": "stopover-stopoverand-to-are-same",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/stopover/cost?from=101&stopover=103&to=103",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"stopover",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "101"
+								},
+								{
+									"key": "stopover",
+									"value": "103"
+								},
+								{
+									"key": "to",
+									"value": "103"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "292"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"124-xoaFg3eHo/5iTup4dGNSuGkJswY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Sep 2021 09:30:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/stopover/cost?from=101&stopover=103&to=103\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"cost\"\n        },\n        \"query\": {\n            \"from\": \"101\",\n            \"stopover\": \"103\",\n            \"to\": \"103\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"경유지 와 도착지가 같을 수 없습니다\"\n    }\n}"
+				},
+				{
+					"name": "stopover-wrong-station",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/stopover/cost?from=101&stopover=999&to=103",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"stopover",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "101"
+								},
+								{
+									"key": "stopover",
+									"value": "999"
+								},
+								{
+									"key": "to",
+									"value": "103"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "280"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"118-uYHActmkSQ4dAUJV6wJRpZfCDjo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Sep 2021 09:30:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/path/stopover/cost?from=101&stopover=999&to=103\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"cost\"\n        },\n        \"query\": {\n            \"from\": \"101\",\n            \"stopover\": \"999\",\n            \"to\": \"103\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"존재하지 않는 경유지입니다\"\n    }\n}"
+				},
+				{
+					"name": "stopover",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/path/stopover/distance?startStation=901&stopoverStation=102&arriveStation=104",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"path",
+								"stopover",
+								"distance"
+							],
+							"query": [
+								{
+									"key": "startStation",
+									"value": "901"
+								},
+								{
+									"key": "stopoverStation",
+									"value": "102"
+								},
+								{
+									"key": "arriveStation",
+									"value": "104"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "732"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2dc-Wyvrfwgui0ygHNo2wjexBi706aI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Oct 2021 08:43:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/path/stopover/distance?startStation=901&stopoverStation=102&arriveStation=104\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"pathTarget\": \"distance\"\n        },\n        \"query\": {\n            \"startStation\": \"901\",\n            \"stopoverStation\": \"102\",\n            \"arriveStation\": \"104\"\n        }\n    },\n    \"data\": {\n        \"path\": [\n            {\n                \"id\": 103650,\n                \"station\": \"901\"\n            },\n            {\n                \"id\": 103651,\n                \"station\": \"406\"\n            },\n            {\n                \"id\": 103652,\n                \"station\": \"605\"\n            },\n            {\n                \"id\": 103653,\n                \"station\": \"604\"\n            },\n            {\n                \"id\": 103654,\n                \"station\": \"603\"\n            },\n            {\n                \"id\": 103655,\n                \"station\": \"121\"\n            },\n            {\n                \"id\": 103656,\n                \"station\": \"122\"\n            },\n            {\n                \"id\": 103657,\n                \"station\": \"123\"\n            },\n            {\n                \"id\": 103658,\n                \"station\": \"101\"\n            },\n            {\n                \"id\": 103659,\n                \"station\": \"102\"\n            },\n            {\n                \"id\": 952,\n                \"station\": \"102\"\n            },\n            {\n                \"id\": 953,\n                \"station\": \"103\"\n            },\n            {\n                \"id\": 954,\n                \"station\": \"104\"\n            }\n        ],\n        \"other_value\": {\n            \"cost\": \"7180원\",\n            \"time\": \"1시간 22분\"\n        },\n        \"min_value\": \"4m\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "signup-same email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "subway&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-rxERe9Xxq+ERcBL2D369p/qQAdA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Oct 2021 07:41:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/authentication/signup\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"이미 사용중인 이메일 입니다\"\n    }\n}"
+				},
+				{
+					"name": "signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "subway&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-BpC/lR8+ElX/y0IUM0DfbJHDIBg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Oct 2021 07:42:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"status_code\": \"Created\",\n    \"request\": {\n        \"path\": \"/authentication/signup\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": {\n        \"message\": \"success\"\n    }\n}"
+				},
+				{
+					"name": "signup-wrong password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "aaa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f7-u8v1c5RcbRH1kAlAdlFVu1/x4zQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Oct 2021 08:14:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/authentication/signup\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"비밀번호는 8자리 이상, 특수문자, 숫자, 알파벳을 포함해야 합니다\"\n    }\n}"
+				},
+				{
+					"name": "signup-invalid Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878naver",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "subway&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "196"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c4-34WkV+nYuEnT6e4rGm8I+EjuTmc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Oct 2021 10:23:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/authentication/signup\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"유효하지 않은 이메일입니다\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "email verification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "email verification",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/authentication/signup/email?key=wd91wntz7n&id=29",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup",
+								"email"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "wd91wntz7n"
+								},
+								{
+									"key": "id",
+									"value": "29"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ec-0yJeETguVcNodQiDRYZZuP6k/Zo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Oct 2021 10:59:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/authentication/signup/email?key=wd91wntz7n&id=29\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"key\": \"wd91wntz7n\",\n            \"id\": \"29\"\n        }\n    },\n    \"data\": {\n        \"message\": \"회원가입 인증이 완료되었습니다\"\n    }\n}"
+				},
+				{
+					"name": "email verification-fail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/authentication/signup/email?key=wd91wntz7n&id=29",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup",
+								"email"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "wd91wntz7n"
+								},
+								{
+									"key": "id",
+									"value": "29"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "292"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"124-Y0Zvh+htefgWplZ6+LyOmhn/rK4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Oct 2021 11:00:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 403,\n    \"status_code\": \"Forbidden\",\n    \"request\": {\n        \"path\": \"/authentication/signup/email?key=wd91wntz7n&id=29\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {\n            \"key\": \"wd91wntz7n\",\n            \"id\": \"29\"\n        }\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"인증메일 유효시간이 지났습니다. 다시 인증 요청을 해주세요\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "email reauthorization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "email reauthorization",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup/email/reauthorization",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup",
+								"email",
+								"reauthorization"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "201"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c9-oYKivN59qm+6URRyorpYMAWeP+k\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Oct 2021 11:33:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/authentication/signup/email/reauthorization\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": {\n        \"message\": \"인증이메일이 재발송 됬습니다\"\n    }\n}"
+				},
+				{
+					"name": "email already verified",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup/email/reauthorization",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup",
+								"email",
+								"reauthorization"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "213"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d5-qzPNY9nItOZc2DDCK/axDI3dufo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Oct 2021 11:33:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"status_code\": \"Conflict\",\n    \"request\": {\n        \"path\": \"/authentication/signup/email/reauthorization\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"이미 인증한 이메일 입니다\"\n    }\n}"
+				},
+				{
+					"name": "invalide email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signup/email/reauthorization",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signup",
+								"email",
+								"reauthorization"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-Dly0m/RVvstbqEIu/72wDoxaPvE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Oct 2021 11:34:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/authentication/signup/email/reauthorization\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"유효하지 않은 이메일입니다\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "sigin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "siginin - Didn'y sign up yet",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "subway&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signin"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-sjw8LoJTHcFeFkwX54sbeZoMq5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Oct 2021 05:23:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/authentication/signin\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"회원가입을 하지 않은 계정입니다\"\n    }\n}"
+				},
+				{
+					"name": "signin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "subway&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/authentication/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"signin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "subwayRefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNDc5NjE0M30.tlZYUYQctq8I_EOwjlJZq8oncAHB2h-gKUiyZ8QHC7I; Path=/; HttpOnly; Secure; SameSite=None"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "334"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14e-vNTbTsqIZwpatY8NLesZYjHlM7Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Oct 2021 06:02:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/authentication/signin\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": {\n        \"user_id\": 40,\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNDc5NjE0MywiZXhwIjoxNjM0Nzk5NzQzfQ.Gpq-_RJWAfyLSaLcUw2zL4kZWciWaAU3IjvSjdXuERQ\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDUsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNTE0NTc0NiwiZXhwIjoxNjM1MTQ5MzQ2fQ.koifFWPPCQ8-UtfgXVeMuFTL-aSb_NmrA6aKpCYJTcg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/authentication/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"logout"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "subwayRefreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-Ja/NjZk70GJac9R8msZs946Hfh0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Oct 2021 07:10:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "reissuing access token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "reissuing access token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/authentication/refresh-token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authentication",
+								"refresh-token"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "332"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14c-GBvIvLK240JSFg5kTG1cqAjvuJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Oct 2021 11:34:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"status_code\": \"Created\",\n    \"request\": {\n        \"path\": \"/authentication/refresh-token\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDUsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNTI0ODA0NSwiZXhwIjoxNjM1MjUxNjQ1fQ.NeDjvSVK9Jn3aLIge8yHHTY57ca-0tgGz5B69gmepTc\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get book mark",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "get book mark",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjEwMDg0NSwiZXhwIjoxNjM2MTAyNjQ1fQ.fPtbyQjQsoZ6odhE1m8q9_HYVf4kUl4AIrC8bT2thbs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/bookmark/user/61",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookmark",
+								"user",
+								"61"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "229"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e5-Tz0GpOaG/nOCWYF1pF2MtLCAOGQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Nov 2021 08:29:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/bookmark/user/61\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"userId\": \"61\"\n        },\n        \"query\": {}\n    },\n    \"data\": [\n        {\n            \"id\": 7,\n            \"from\": \"209\",\n            \"to\": \"621\",\n            \"stopover\": \"\"\n        },\n        {\n            \"id\": 8,\n            \"from\": \"209\",\n            \"to\": \"621\",\n            \"stopover\": \"618\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "lost and found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "lost and found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/amenities/lost-and-found",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"amenities",
+								"lost-and-found"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4ad-wOEMgX794bQqSh7y+9GVVn/lnd0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 09:25:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/amenities/lost-and-found\",\n        \"method\": \"GET\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"station\": \"107\",\n            \"callNumber\": \"45-879-1364\",\n            \"operatingHour\": \"10:00-20:00\"\n        },\n        {\n            \"id\": 2,\n            \"station\": \"109\",\n            \"callNumber\": \"45-879-6812\",\n            \"operatingHour\": \"10:00-20:00\"\n        },\n        {\n            \"id\": 3,\n            \"station\": \"112\",\n            \"callNumber\": \"45-879-7432\",\n            \"operatingHour\": \"10:00-20:00\"\n        },\n        {\n            \"id\": 4,\n            \"station\": \"121\",\n            \"callNumber\": \"45-879-5967\",\n            \"operatingHour\": \"10:00-20:00\"\n        },\n        {\n            \"id\": 5,\n            \"station\": \"205\",\n            \"callNumber\": \"12-345-7950\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 6,\n            \"station\": \"207\",\n            \"callNumber\": \"12-345-8167\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 7,\n            \"station\": \"209\",\n            \"callNumber\": \"12-345-8407\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 8,\n            \"station\": \"211\",\n            \"callNumber\": \"12-345-1642\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 9,\n            \"station\": \"214\",\n            \"callNumber\": \"12-345-8640\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 10,\n            \"station\": \"217\",\n            \"callNumber\": \"12-345-6789\",\n            \"operatingHour\": \"09:00-18:00\"\n        },\n        {\n            \"id\": 11,\n            \"station\": \"616\",\n            \"callNumber\": \"67-574-6390\",\n            \"operatingHour\": \"07:00-19:00\"\n        },\n        {\n            \"id\": 12,\n            \"station\": \"801\",\n            \"callNumber\": \"78-980-4756\",\n            \"operatingHour\": \"08:30-18:30\"\n        },\n        {\n            \"id\": 13,\n            \"station\": \"802\",\n            \"callNumber\": \"78-980-0791\",\n            \"operatingHour\": \"08:30-18:30\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "store box",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "store box",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/amenities/store-box",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"amenities",
+								"store-box"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "798"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31e-QydjqoOkF1i+aBY3QRRVDJuz13Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 07:16:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"station\": \"107\"\n    },\n    {\n        \"id\": 2,\n        \"station\": \"109\"\n    },\n    {\n        \"id\": 3,\n        \"station\": \"112\"\n    },\n    {\n        \"id\": 4,\n        \"station\": \"113\"\n    },\n    {\n        \"id\": 5,\n        \"station\": \"115\"\n    },\n    {\n        \"id\": 6,\n        \"station\": \"116\"\n    },\n    {\n        \"id\": 7,\n        \"station\": \"121\"\n    },\n    {\n        \"id\": 8,\n        \"station\": \"119\"\n    },\n    {\n        \"id\": 9,\n        \"station\": \"122\"\n    },\n    {\n        \"id\": 10,\n        \"station\": \"123\"\n    },\n    {\n        \"id\": 11,\n        \"station\": \"207\"\n    },\n    {\n        \"id\": 12,\n        \"station\": \"202\"\n    },\n    {\n        \"id\": 13,\n        \"station\": \"209\"\n    },\n    {\n        \"id\": 14,\n        \"station\": \"211\"\n    },\n    {\n        \"id\": 15,\n        \"station\": \"214\"\n    },\n    {\n        \"id\": 16,\n        \"station\": \"216\"\n    },\n    {\n        \"id\": 17,\n        \"station\": \"303\"\n    },\n    {\n        \"id\": 18,\n        \"station\": \"307\"\n    },\n    {\n        \"id\": 19,\n        \"station\": \"403\"\n    },\n    {\n        \"id\": 20,\n        \"station\": \"406\"\n    },\n    {\n        \"id\": 21,\n        \"station\": \"409\"\n    },\n    {\n        \"id\": 22,\n        \"station\": \"503\"\n    },\n    {\n        \"id\": 23,\n        \"station\": \"601\"\n    },\n    {\n        \"id\": 24,\n        \"station\": \"605\"\n    },\n    {\n        \"id\": 25,\n        \"station\": \"608\"\n    },\n    {\n        \"id\": 26,\n        \"station\": \"614\"\n    },\n    {\n        \"id\": 27,\n        \"station\": \"618\"\n    },\n    {\n        \"id\": 28,\n        \"station\": \"621\"\n    },\n    {\n        \"id\": 29,\n        \"station\": \"702\"\n    },\n    {\n        \"id\": 30,\n        \"station\": \"705\"\n    },\n    {\n        \"id\": 31,\n        \"station\": \"802\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "send user complain email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "send user complain email - invalide email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "e",
+									"type": "text"
+								},
+								{
+									"key": "userComplainContext",
+									"value": "qwerqwerqwer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/amenities/user-complain",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"amenities",
+								"user-complain"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c6-rr3JZWHtMmf+mf2bt9X2kXLlk4Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 09:32:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/amenities/user-complain\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"유효하지 않은 이메일입니다\"\n    }\n}"
+				},
+				{
+					"name": "send user complain email - complain context is too short",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "e@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "userComplainContext",
+									"value": "qwer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/amenities/user-complain",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"amenities",
+								"user-complain"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "210"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d2-n7efTCxM/It61fNXwhlRgICFnZc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 09:33:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/amenities/user-complain\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"민원내용은 10글자 이상이여야 합니다\"\n    }\n}"
+				},
+				{
+					"name": "send user complain email - invalide subway line",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "e@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "userComplainContext",
+									"value": "qwerewqrgadsbfdhgefh",
+									"type": "text"
+								},
+								{
+									"key": "subwayLine",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/amenities/user-complain",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"amenities",
+								"user-complain"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-GN7LkWfV3uKZ1F6jhaiuPzL0J0U\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 09:40:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/amenities/user-complain\",\n        \"method\": \"POST\",\n        \"params\": {},\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"올바르지 않은 지하철 노선입니다\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "change user information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "change user information - has same email",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjk3MTMzMiwiZXhwIjoxNjM2OTczMTMyfQ.p0rFkOQuVlM6w___NplHPxz-MmN8jCW-BKHKMIsa6qU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/user/31/user-information",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"31",
+								"user-information"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "212"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d4-rYdY+C0SiB2YTAsFF30EofnaLuw\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Nov 2021 10:16:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/user/31/user-information\",\n        \"method\": \"PUT\",\n        \"params\": {\n            \"userId\": \"31\"\n        },\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"이미 사용중인 이메일 입니다\"\n    }\n}"
+				},
+				{
+					"name": "change user information - incorrect email form",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjk3MTMzMiwiZXhwIjoxNjM2OTczMTMyfQ.p0rFkOQuVlM6w___NplHPxz-MmN8jCW-BKHKMIsa6qU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/user/31/user-information",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"31",
+								"user-information"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "211"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d3-EhesfZRa9X0RFjMLaWVUDy7zrWk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Nov 2021 10:17:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/user/31/user-information\",\n        \"method\": \"PUT\",\n        \"params\": {\n            \"userId\": \"31\"\n        },\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"유효하지 않은 이메일입니다\"\n    }\n}"
+				},
+				{
+					"name": "change user information - invalid previous password",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjk3MTMzMiwiZXhwIjoxNjM2OTczMTMyfQ.p0rFkOQuVlM6w___NplHPxz-MmN8jCW-BKHKMIsa6qU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "iskull@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "prevPassword",
+									"value": "subwa&1878",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "tmp&9876",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/user/31/user-information",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"31",
+								"user-information"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "221"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dd-xleL8RUKXO5TLeA+7ablZBI4V4E\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Nov 2021 10:23:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/user/31/user-information\",\n        \"method\": \"PUT\",\n        \"params\": {\n            \"userId\": \"31\"\n        },\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"기존 비밀번호가 올바르지 않습니다\"\n    }\n}"
+				},
+				{
+					"name": "change user information - cannot change password due to empty previous password or empty new password",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjk3MTMzMiwiZXhwIjoxNjM2OTczMTMyfQ.p0rFkOQuVlM6w___NplHPxz-MmN8jCW-BKHKMIsa6qU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "iskull@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "prevPassword",
+									"value": "subway&1878",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/user/31/user-information",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"31",
+								"user-information"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "248"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f8-lPtwG2ZMz6AOoD7ocuPn/tWAoDU\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Nov 2021 10:23:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_code\": \"Bad Request\",\n    \"request\": {\n        \"path\": \"/user/31/user-information\",\n        \"method\": \"PUT\",\n        \"params\": {\n            \"userId\": \"31\"\n        },\n        \"query\": {}\n    },\n    \"data\": \"\",\n    \"error\": {\n        \"message\": \"기존 비밀번호와 새로운 비밀번호를 모두 입력해 주세요\"\n    }\n}"
+				},
+				{
+					"name": "change user information - change email or password",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNjk3NDI2OSwiZXhwIjoxNjM2OTc2MDY5fQ.d1PhVVjWNA_TjhWYnmg0Qbwlecxy065ElyOffuU7G5A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "space1878@naver.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "prevPassword",
+									"value": "subway&1878",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "teamproject&1878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/user/31/user-information",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"31",
+								"user-information"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"95-+tgRL7FVH3DntNgeXAaxAdwdRTA\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Nov 2021 11:08:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "get user email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "get user email",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3BhY2UxODc4QG5hdmVyLmNvbSIsImlhdCI6MTYzNzE0NjE5MSwiZXhwIjoxNjM3MTQ3OTkxfQ.WVDeC4pJtaVjp82Bw7l76JRc-fwOV3XV_vDCbn26aYw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/user/60/email",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"60",
+								"email"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "159"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9f-DzesAVxJIhxoqMNCdJSZfKYOK10\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 17 Nov 2021 11:10:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_code\": \"OK\",\n    \"request\": {\n        \"path\": \"/user/60/email\",\n        \"method\": \"GET\",\n        \"params\": {\n            \"userId\": \"60\"\n        },\n        \"query\": {}\n    },\n    \"data\": {\n        \"email\": \"space1878@naver.com\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
