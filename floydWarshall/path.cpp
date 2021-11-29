@@ -33,7 +33,7 @@ int main(void) {
 		stations.push_back(s);
 	}
 	f(0);
-	string filePath = "permutation.txt";
+	string filePath = "permutation.sql";
 	ofstream writeFile(filePath.data());
 	if(writeFile.is_open()) {
 		for(auto p : allPath) {
@@ -43,9 +43,9 @@ int main(void) {
 				insert += to_string(i);
 				insert += "\'";
 				insert += ", ";
-//				writeFile << i << " ";
+				//writeFile << i << " ";
 			}
-//			writeFile << "\n";
+			//writeFile << "\n";
 			insert.pop_back();
 			insert.pop_back();
 			insert += ");";
