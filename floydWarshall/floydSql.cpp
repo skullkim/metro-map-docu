@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <fstream>
+#include <string>
 using namespace std;
 
 const int MAX = 1000;
@@ -47,6 +48,8 @@ void parseStrToInt(int& start, int& end, string path) {
 	string e = "";
 	for(int i = 0; i < 3; i++) s += path[i];
 	for(int i = 4; i < 7; i++) e += path[i];
+	//if(s == "217" || e == "217") cout << s << endl;
+	//cout << s << endl;
 	start = stoi(s);
 	end = stoi(e);
 }
@@ -102,8 +105,9 @@ string insertPath(const string targetLower, const string targetUpper, auto val) 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	for(int i = 0, s; i < 110; i++) {
+	for(int i = 0, s; i < 111; i++) {
 		cin >> s;
+		if(s == 217) cout << s << endl;
 		stations.push_back(s);
 	}
 	int s_len = stations.size();
@@ -137,11 +141,11 @@ int main(void) {
 
 	string filePath = "permutation.txt";
 	ifstream readFile(filePath.data());
-	const string targetLower = "time";
-	const string targetUpper = "Time";
-	const string otherV1 = "distance";
+	const string targetLower = "distance";
+	const string targetUpper = "Distance";
+	const string otherV1 = "time";
 	const string otherV2 = "cost";
-	string writeFilePath = "minTimeAns.sql";
+	string writeFilePath = "minPathAns.sql";
 	ofstream writeFile(writeFilePath.data());
 	if(readFile.is_open()) {
 		string line;
@@ -156,6 +160,7 @@ int main(void) {
 				writeFile << sql << "\n";
 				writeFile << sqlVal << "\n";
 				string sql3 = insertOtherValue(targetLower, targetUpper, start, end, otherV1, otherV2);
+				if(start == 217) cout << "start" << endl;
 				writeFile << sql3 << "\n";
 				for(auto p : tmp) {
 					string sql2 = insertPath(targetLower, targetUpper, p);
